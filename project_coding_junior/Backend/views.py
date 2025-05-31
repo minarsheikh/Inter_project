@@ -4,9 +4,10 @@ from rest_framework.parsers import MultiPartParser
 from .models import Document, QAHistory
 from .serializers import DocumentSerializer
 import openai
+import os
 
 # Put your API key here (not recommended for production)
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class UploadDocumentView(APIView):
     parser_classes = [MultiPartParser]
